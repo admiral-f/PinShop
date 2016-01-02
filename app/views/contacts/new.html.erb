@@ -1,0 +1,67 @@
+<div class="container">
+	<div class="row">
+	<div class="col-xs-2"></div>
+		<div class="col-md-8 col-sm-8 col-xs-12">
+			<h4>Contacts</h4>
+			<h6>You can phone us or send message</h6>
+			</br>
+			<address>
+			  <strong>PinShop</strong><br>
+			  117463 Russia, Moscow<br>
+			  Golubinskaja ul., 28<br>
+			  <abbr title="Phone">P:</abbr> (123) 456-7890
+			</address>
+
+			<address>
+			  <strong>Email</strong><br>
+			  <a href="mailto:#">admiral-f@yandex.ru</a>
+			</address>
+			</br>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" >Send message</button>
+
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+			      </div>
+			        <%= form_for :contact, url: contacts_path do |f| %>
+			        	<div class="modal-body">
+						<% if @contact && @contact.errors.any? %>
+							<p>
+							<% @error=@contact.errors.full_messages.first %>
+							</p>
+						<% end %>
+						<div class="form-group">
+						<%= f.label :name, class: "control-label" %> </br>
+						<%= f.text_field :name, class: "form-control" %>		
+						</div>
+						<div class="form-group">
+						<%= f.label :email, class: "control-label" %> </br>
+						<%= f.text_field :email, class: "form-control" %>		
+						</div>
+						<div class="form-group">
+						<%= f.label :message, class: "control-label" %> 
+						<%= f.text_area :message, class: "form-control" %>		
+						</div>
+						</div>
+						<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<%= f.submit "Send message", class: "btn btn-primary" %>
+						</div>
+					<% end %>
+			    </div>
+			  </div>
+			</div>
+			</br>
+			</br>
+			</br>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2254.399300179155!2d37.53940531536423!3d55.59506401161485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414aad6eb9458f15%3A0xcb4c56eef5990028!2z0JPQvtC70YPQsdC40L3RgdC60LDRjyDRg9C7LiwgMjgsINCc0L7RgdC60LLQsCwgMTE3NDYz!5e0!3m2!1sru!2sru!4v1448897573675" width="800" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+
+<script type="text/javascript">
+		$('#exampleModal').on('show.bs.modal', function (event) {
+  			
+});
+</script>
