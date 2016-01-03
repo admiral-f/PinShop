@@ -7,7 +7,7 @@
 			</br>
 				<% if @contact && @contact.errors.any? %>
 							<p>
-							<%= @contact.errors.full_messages.first %>
+							<% @error=@contact.errors.full_messages.first %>
 							</p>
 						<% end %>
 			<address>
