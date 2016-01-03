@@ -16,6 +16,16 @@
 </head>
 <body>
 
+<%if @error && @error.length > 0 then %>
+  <div class="alert alert-danger"><%=@error%></div>
+<% end %>
+<%if alert  then %>
+  <div class="alert alert-danger"><%= alert%></div>
+<% end %>
+<%if notice then %>
+  <div class="alert alert-success"><%= notice %></div>
+<% end %>
+
 <%= yield %>
 
 </body>
