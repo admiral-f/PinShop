@@ -5,6 +5,11 @@
 			<h4>Contacts</h4>
 			<h6>You can phone us or send message</h6>
 			</br>
+				<% if @contact && @contact.errors.any? %>
+							<p>
+							<%= @contact.errors.full_messages.first %>
+							</p>
+						<% end %>
 			<address>
 			  <strong>PinShop</strong><br>
 			  117463 Russia, Moscow<br>
@@ -22,17 +27,12 @@
 			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
 			  <div class="modal-dialog" role="document">
 			    <div class="modal-content">
-			      <div class="modal-header">
+			      <div class="modal-header">                                                                              
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
 			      </div>
 			        <%= form_for :contact, url: contacts_path do |f| %>
 			        	<div class="modal-body">
-						<% if @contact && @contact.errors.any? %>
-							<p>
-							<% @error=@contact.errors.full_messages.first %>
-							</p>
-						<% end %>
 						<div class="form-group">
 						<%= f.label :name, class: "control-label" %> </br>
 						<%= f.text_field :name, class: "form-control" %>		
