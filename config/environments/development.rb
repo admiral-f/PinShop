@@ -1,4 +1,7 @@
 Rails.application.configure do
+
+  Paperclip.options[:command_path] = 'C:\ImageMagick-6.9.2-Q16'
+  Paperclip.options[:image_magick_path] = 'C:\ImageMagick-6.9.2-Q16'
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
