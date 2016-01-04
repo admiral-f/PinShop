@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="row">
+	<div class="col-xs-2"></div>
+		<div class="col-md-8 col-sm-8 col-xs-12">
+			<h4><p class="text-center"><%=@pin.label %>
+			<% if @pin.is_best_offer %>
+				</br>
+				<p class="text-center"> (This is best offer)</p>
+				</br>
+			<% end %>
+			</p></h4>
+			<%= image_tag @pin.image.url(:medium), class: "center-block" %>
+			</br>
+			<b><p class="text-center">Price: <%=@pin.price %> $</p></b>
+			<p class="text-center"><%=@pin.material %></p>
+			<p class="text-center"><%=@pin.description %></p>
+		</div>
+	</div>
+</div>

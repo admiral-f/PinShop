@@ -3,6 +3,10 @@ class PinsController < ApplicationController
   def new
   end
 
+  def show
+    @pin=Pin.find(params[:id])
+  end
+
   def create
     @pin=Pin.new(pin_params)
     if @pin.save
