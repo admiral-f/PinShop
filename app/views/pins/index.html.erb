@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="row">
+	<div class="col-xs-2"></div>
+		<div class="col-md-8 col-sm-8 col-xs-12">
+			<h2><p class="text-center">Our pins</p></h2>
+			<div class="row">
+				<% @pin.each do |pin| %>
+					<div class="col-sm-6 col-md-6">
+    					<div class="thumbnail">
+      						<%= image_tag pin.image.url(:medium), class: "center-block img-thumbnail" %>
+      						<div class="caption">
+        						<h3><p class="text-center"><%=pin.label %></p></h3>
+        						<p><b>Price: <%=pin.price %> $</b></p>
+        						</br>
+        						<p>Material: <%=pin.material %></p>
+        						<p><%=pin.description %></p>
+        						<p><a href="#" class="btn btn-default btn-sm" role="button">Add to Cart (<%= pin.price %>$)</a></p>
+      						</div>
+    					</div>
+  					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

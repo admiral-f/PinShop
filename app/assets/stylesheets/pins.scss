@@ -4,3 +4,19 @@
 .control-label{
 	color: white;
 }
+
+.thumbnail{
+	color: white;
+	background-color: #006600;
+	border: 2px solid white;
+	border-radius: 10px;
+	padding: 20px;
+	.caption{
+		color: white;
+		.btn-default{
+			color: #000;
+		}
+	}
+	
+}
+
