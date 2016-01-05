@@ -34,15 +34,15 @@
 			        <%= form_for :contact, url: contacts_path do |f| %>
 			        	<div class="modal-body">
 						<div class="form-group">
-						<%= f.label :name, class: "control-label" %> </br>
+						<%= f.label :name, class: "control-label", id: "control-label" %> </br>
 						<%= f.text_field :name, class: "form-control" %>		
 						</div>
 						<div class="form-group">
-						<%= f.label :email, class: "control-label" %> </br>
+						<%= f.label :email, class: "control-label", id: "control-label" %> </br>
 						<%= f.text_field :email, class: "form-control" %>		
 						</div>
 						<div class="form-group">
-						<%= f.label :message, class: "control-label" %> 
+						<%= f.label :message, class: "control-label", id: "control-label" %> 
 						<%= f.text_area :message, class: "form-control" %>		
 						</div>
 						</div>
