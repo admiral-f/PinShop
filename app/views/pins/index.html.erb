@@ -7,13 +7,13 @@
 				<% @pin.each do |pin| %>
 					<div class="col-sm-6 col-md-6">
     					<div class="thumbnail">
-      						<%= image_tag pin.image.url(:medium), class: "center-block img-thumbnail" %>
+      						<%= link_to image_tag(pin.image.url(:medium)),pin_path(pin), class: "center-block img-thumbnail" %>
       						<div class="caption">
-        						<h3><p class="text-center"><%=pin.label %></p></h3>
+        						<h3><p class="text-center"><%= link_to pin.label,pin_path(pin) %></p></h3>
         						<p><b>Price: <%=pin.price %> $</b></p>
         						</br>
         						<p>Material: <%=pin.material %></p>
-        						<p><%=pin.description %></p>
+        						</br>
         						<p><a href="#" class="btn btn-default btn-sm" role="button">Add to Cart (<%= pin.price %>$)</a></p>
       						</div>
     					</div>
