@@ -1,0 +1,15 @@
+<h2>Add category</h2>
+<%= form_for :category, url: categories_path do |f| %>
+				<% if @category && @category.errors.any? %>
+					<p>
+					<% @error=@category.errors.full_messages.first %>
+					</p>
+				<% end %>
+
+			   	<div class="form-group">
+					<%= f.label :title, class: "control-label" %> </br>
+					<%= f.text_field :title, class: "form-control" %>		
+				</div>
+				</br>
+				<%= f.submit "Submit", class: "btn btn-default" %>
+<% end %>
