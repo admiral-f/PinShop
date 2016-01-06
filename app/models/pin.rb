@@ -1,4 +1,5 @@
 class Pin < ActiveRecord::Base
+  belongs_to :category
   validates :label, presence: true
   validates :price, presence: true
   validates :description, presence: true
