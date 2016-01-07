@@ -1,6 +1,7 @@
 class PinsController < ApplicationController
 
   def index
+    @categories=Category.all
     @pin=Pin.all
   end
 
