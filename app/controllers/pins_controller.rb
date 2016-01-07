@@ -5,7 +5,7 @@ class PinsController < ApplicationController
   end
 
   def new
-    @category=Category.all
+
   end
 
   def show
@@ -43,7 +43,7 @@ class PinsController < ApplicationController
   private
 
   def pin_params
-    params.require(:pin).permit(:label, :price, :material, :description, :image, :is_best_offer)
+    params.require(:pin).permit(:label, :price, :material, :description, :image, :is_best_offer, :category_id)
   end
 
 end

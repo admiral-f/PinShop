@@ -1,5 +1,10 @@
 class CategoriesController < ApplicationController
-   def new
+  
+  def index
+    redirect_to pins_path
+  end
+
+  def new
   end
 
   def show
