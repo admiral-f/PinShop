@@ -16,6 +16,7 @@
 body {
 	background-color: #006600;
 	color: white;
+	padding-top: 70px;
 }
 
 a:link {
@@ -33,3 +34,17 @@ a:visited {
 .field_with_errors textarea {
 	border-color: red;
 }
+
+.navbar-default .navbar-brand {
+	color: #E3B94C;
+}
+
+.navbar {
+	background-color: green;
+	border-color: green;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+
