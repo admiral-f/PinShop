@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'pony'
 gem 'paperclip'
+gem 'devise'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
