@@ -1,12 +1,17 @@
 class PinsController < ApplicationController
-
+  before_filter :authenticate_user!, :only=>[:new, :create, :edit, :update, :destroy]
   def index
     @categories=Category.all
     @pin=Pin.all
   end
 
   def new
+    if current_user.username=='admin'
+      
+    else
+      redirect_to pins_path
 
+    end
   end
 
   def show
@@ -23,7 +28,11 @@ class PinsController < ApplicationController
   end
 
   def edit
-    @pin=Pin.find(params[:id])
+    if current_user.username=='admin'
+      @pin=Pin.find(params[:id])
+    else
+      redirect_to pins_path
+    end
   end
 
   def update

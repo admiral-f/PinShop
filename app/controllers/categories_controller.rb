@@ -1,10 +1,16 @@
 class CategoriesController < ApplicationController
-  
+  before_filter :authenticate_user!, :only=>[:new, :create, :index]
   def index
     redirect_to pins_path
   end
 
   def new
+    if current_user.username=='admin'
+      
+    else
+      redirect_to pins_path
+
+    end
   end
 
   def show
