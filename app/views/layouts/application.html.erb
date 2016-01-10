@@ -37,6 +37,7 @@
             <% if user_signed_in? %>
               <% if current_user.username=='admin' %>
                 <li><%= link_to 'Add new Pin', new_pin_path  %><li>
+                <li><%= link_to 'Add new Category', new_category_path  %><li>
               <% end %>
             <% end %>
           </ul>
