@@ -32,7 +32,11 @@
                     </br>
         						<p><a href="#" class="btn btn-default btn-sm" role="button">Add to Cart (<%= pin.price %>$)</a></p>
                   </div>
-              <%= link_to 'edit',edit_pin_path(pin) %>
+              <% if user_signed_in? %>
+                <% if current_user.username=='admin' %>
+                   <%= link_to 'edit',edit_pin_path(pin) %>
+                <% end %>
+              <% end %>
     					</div>
   					</div>
 				<% end %>

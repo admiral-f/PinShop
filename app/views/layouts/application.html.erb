@@ -34,9 +34,26 @@
           <ul class="nav navbar-nav">
             <li><%= link_to 'Shop', pins_path %><li>
             <li><%= link_to 'Contacts', contacts_path %><li>
+            <% if user_signed_in? %>
+              <% if current_user.username=='admin' %>
+                <li><%= link_to 'Add new Pin', new_pin_path  %><li>
+              <% end %>
+            <% end %>
           </ul>
           <ul class="nav navbar-nav navbar-right" >
-            <li><%= link_to 'Sign In',  pins_path %></li>
+              <% if user_signed_in? %>
+                <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <%= current_user.username %>
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                <li><a href="<%= edit_user_registration_path %>"><%= current_user.username %>'s Profile</a></li>
+                 <li role="separator" class="divider"></li>
+                <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+                </ul>
+              <% else %>
+                <li><%= link_to 'Sign In',  new_user_session_path %></li>
+              <% end %>
           </ul>
         </div>
         </div>
