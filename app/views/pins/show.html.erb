@@ -18,7 +18,7 @@
        					<p><b>Material:</b> <%=@pin.material %></p>
        					<p><b>Description:</b> <%=@pin.description %></p>
        					<br/>
-       					<p><a href="#" class="btn btn-default btn-sm" role="button">Add to Cart (<%= @pin.price %>$)</a></p>
+       					<p><a href="#" class="btn btn-default btn-sm" role="button" onclick="add_to_cart(<%=@pin.id%>)">Add to Cart (<%= @pin.price %>$)</a></p>
       				</div>
     		</div>
 			

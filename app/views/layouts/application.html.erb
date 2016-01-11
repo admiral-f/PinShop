@@ -34,6 +34,12 @@
           <ul class="nav navbar-nav">
             <li><%= link_to 'Shop', pins_path %><li>
             <li><%= link_to 'Contacts', contacts_path %><li>
+            <li>
+              <form action="#" method="POST">
+                <input id="orders_input" name="orders" type="hidden" >
+                <input id="orders_button" type="submit" class="btn btn-link" value="Cart" >
+              </form>
+            </li>
             <% if user_signed_in? %>
               <% if current_user.username=='admin' %>
                 <li><%= link_to 'Add new Pin', new_pin_path  %><li>
