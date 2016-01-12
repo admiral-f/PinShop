@@ -35,10 +35,10 @@
             <li><%= link_to 'Shop', pins_path %><li>
             <li><%= link_to 'Contacts', contacts_path %><li>
             <li>
-              <form action="#" method="POST">
-                <input id="orders_input" name="orders" type="hidden" >
-                <input id="orders_button" type="submit" class="btn btn-link" value="Cart" >
-              </form>
+              <%= form_for :order, url: orders_path do |f| %>
+                <%= f.text_field :order, id: "orders_input" %>
+                <%= f.submit "Cart", class: "btn btn-link", id: "orders_button" %>
+              <% end %>
             </li>
             <% if user_signed_in? %>
               <% if current_user.username=='admin' %>
