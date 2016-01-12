@@ -36,6 +36,12 @@ function update_orders_button()
 	$('#orders_button').val(text);
 }
 
+function update_orders_link()
+{
+    var text = 'Cart (' + cart_get_number_of_items() + ')';
+    $('#orders_link').html(text);
+}
+
 function cart_get_number_of_items()
 {
 	var cnt = 0;

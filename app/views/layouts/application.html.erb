@@ -34,12 +34,7 @@
           <ul class="nav navbar-nav">
             <li><%= link_to 'Shop', pins_path %><li>
             <li><%= link_to 'Contacts', contacts_path %><li>
-            <li>
-              <%= form_for :order, url: orders_path do |f| %>
-                <%= f.text_field :order, id: "orders_input" %>
-                <%= f.submit "Cart", class: "btn btn-link", id: "orders_button" %>
-              <% end %>
-            </li>
+            <li><%= link_to 'CART', cart_path, id: "orders_link" %><li>
             <% if user_signed_in? %>
               <% if current_user.username=='admin' %>
                 <li><%= link_to 'Add new Pin', new_pin_path  %><li>
@@ -80,8 +75,7 @@
 
 <script type="text/javascript">
   $(function(){
-    update_orders_input();
-    update_orders_button();
+    update_orders_link();
   });
 </script>
 
