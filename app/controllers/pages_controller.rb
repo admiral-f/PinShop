@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def cart
+    @pins=Pin.all
   end
 
 end
