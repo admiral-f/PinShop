@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
   root 'pages#index'
   get 'index' => 'pages#index'
-  get 'cart' => 'pages#cart'
   resource :contacts, only: [:new, :create], path_names: { :new =>'' }
   resources :categories
   resources :pins, path_names: { :index =>'' }
+  resources :orders
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

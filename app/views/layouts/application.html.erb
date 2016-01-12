@@ -34,7 +34,11 @@
           <ul class="nav navbar-nav">
             <li><%= link_to 'Shop', pins_path %><li>
             <li><%= link_to 'Contacts', contacts_path %><li>
-            <li><%= link_to 'CART', cart_path, id: "orders_link" %><li>
+            <li>
+              <form action="#" method="POST">
+                <input id="orders_input" name="orders" type="hidden" >
+                <input id="orders_button" type="submit" class="btn btn-link" value="Cart" >
+              </form>
             </li>
             <% if user_signed_in? %>
               <% if current_user.username=='admin' %>
@@ -76,7 +80,8 @@
 
 <script type="text/javascript">
   $(function(){
-  update_orders_link();
+    update_orders_input();
+    update_orders_button();
   });
 </script>
 
