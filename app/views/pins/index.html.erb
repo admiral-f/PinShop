@@ -30,7 +30,7 @@
         						</br>
         						<p>Material: <%=pin.material %></p>
                     </br>
-        						<p><a href="#" class="btn btn-default btn-sm" role="button" onclick="add_to_cart(<%=pin.id%>)">Add to Cart (<%= pin.price %>$)</a></p>
+        						<p><a href="#" class="btn btn-default btn-sm" role="button" onclick="add_to_cart("id": <%=pin.id%>, "title": "<%= pin.label %>", "price": <%= pin.price %>)">Add to Cart (<%= pin.price %>$)</a></p>
                   </div>
               <% if user_signed_in? %>
                 <% if current_user.username=='admin' %>
