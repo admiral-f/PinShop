@@ -15,7 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
-function add_to_cart(id)
+function add_to_cart(id, title, price)
 {
 	var key = 'product_' + id;
 	var x=window.localStorage.getItem(key);
