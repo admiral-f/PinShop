@@ -19,8 +19,15 @@ function add_to_cart(id, title, price)
 {
 	var key = 'product_' + id;
 	var x=window.localStorage.getItem(key);
-	x = x * 1 + 1;
-	window.localStorage.setItem(key, x);
+	if(JSON.parse(x)==null){
+		x=[id, title, price, 1];
+		
+
+	} else {
+		x=JSON.parse(x);
+		x[3]=x[3]*1+1;
+	}
+	window.localStorage.setItem(key, JSON.stringify(x));
 	update_orders_link();
 }
 
