@@ -56,9 +56,10 @@ function cart_get_number_of_items()
 	{
 		var key = window.localStorage.key(i);
 		var value = window.localStorage.getItem(key);
+		value=JSON.parse(value);
 		if(key.indexOf('product_')==0)
 		{
-			cnt = cnt + value*1;
+			cnt = cnt + value[3]*1;
 		}
 	}
 	return cnt;
@@ -71,9 +72,10 @@ function cart_get_orders()
 	{
 		var key = window.localStorage.key(i);
 		var value = window.localStorage.getItem(key);
+		value=JSON.parse(value);
 		if(key.indexOf('product_')==0)
 		{
-			orders= orders + key + '=' + value + ',';
+			orders= orders + key + '=' + value[3] + ',';
 		}
 	}
 	return orders;
