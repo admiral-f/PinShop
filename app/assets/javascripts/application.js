@@ -145,9 +145,11 @@ function decrease_quantity(id)
 	var key = 'product_' + id;
 	var x=window.localStorage.getItem(key);
 	x=JSON.parse(x);
+	if(x[3]==0){} else{
 	x[3]=x[3]*1-1;
 	window.localStorage.setItem(key, JSON.stringify(x));
 	location.reload();
+	}
 }
 
 function increase_quantity(id)
