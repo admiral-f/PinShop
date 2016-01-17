@@ -133,10 +133,10 @@ function add_order_table()
 	    var cell4 = row.insertCell(3);
 	    var cell5 = row.insertCell(4);
 	    cell1.innerHTML = "";
-	    cell2.innerHTML = "Total Quantity";
-	    cell3.innerHTML = cart_get_number_of_items();
-	    cell4.innerHTML = "Total Price";
-	    cell5.innerHTML = total_price;
+	    cell2.innerHTML = "";
+	    cell3.innerHTML = "";
+	    cell4.innerHTML = "Total Quantity: " + cart_get_number_of_items();
+	    cell5.innerHTML = "Total price: " + total_price;
 	}
 } 
 
