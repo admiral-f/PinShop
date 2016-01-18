@@ -120,7 +120,7 @@ function add_order_table()
 	    		cell1.innerHTML = '<b>' + (i+1) + '</b>';
 	    		cell2.innerHTML = '<a href="/pins/'+value[0]+'">'+value[1]+'</a>';
 	    		cell3.innerHTML = value[2];
-	    		cell4.innerHTML = '<span class="glyphicon glyphicon-upload" onclick="increase_quantity('+value[0]+')"></span> ' +value[3]+ ' <span class="glyphicon glyphicon-download" onclick="decrease_quantity(' +value[0]+ ')"></span>';
+	    		cell4.innerHTML = '<span class="glyphicon glyphicon-plus-sign" onclick="increase_quantity('+value[0]+')"></span> ' +value[3]+ ' <span class="glyphicon glyphicon-minus-sign" onclick="decrease_quantity(' +value[0]+ ')"></span>';
 	    		cell5.innerHTML = value[2]*value[3];
 	    		total_price=total_price*1+value[2]*value[3];
 
@@ -145,11 +145,13 @@ function decrease_quantity(id)
 	var key = 'product_' + id;
 	var x=window.localStorage.getItem(key);
 	x=JSON.parse(x);
-	if(x[3]==0){} else{
-	x[3]=x[3]*1-1;
-	window.localStorage.setItem(key, JSON.stringify(x));
-	location.reload();
+	if(x[3]==0){
+		localStorage.removeItem(key);
+	} else{
+		x[3]=x[3]*1-1;
+		window.localStorage.setItem(key, JSON.stringify(x));
 	}
+	location.reload();
 }
 
 function increase_quantity(id)
