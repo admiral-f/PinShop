@@ -120,7 +120,7 @@ function add_order_table()
 	    		cell1.innerHTML = '<b>' + (i+1) + '</b>';
 	    		cell2.innerHTML = '<a href="/pins/'+value[0]+'">'+value[1]+'</a>';
 	    		cell3.innerHTML = value[2] + ' $';
-	    		cell4.innerHTML = '<span class="glyphicon glyphicon-plus-sign" onclick="increase_quantity('+value[0]+')"></span> ' +value[3]+ ' <span class="glyphicon glyphicon-minus-sign" onclick="decrease_quantity(' +value[0]+ ')"></span>';
+	    		cell4.innerHTML = '<span class="glyphicon glyphicon-minus-sign" onclick="decrease_quantity(' +value[0]+ ')"></span> ' +value[3]+ ' <span class="glyphicon glyphicon-plus-sign" onclick="increase_quantity('+value[0]+')"></span>';
 	    		cell5.innerHTML = value[2]*value[3] +' $  ' + '<span class="glyphicon glyphicon-trash" onclick="delete_product('+value[0]+')"></span> ';
 	    		total_price=total_price*1+value[2]*value[3];
 
