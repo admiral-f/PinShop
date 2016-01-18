@@ -119,9 +119,9 @@ function add_order_table()
 	    		var cell5 = row.insertCell(4);
 	    		cell1.innerHTML = '<b>' + (i+1) + '</b>';
 	    		cell2.innerHTML = '<a href="/pins/'+value[0]+'">'+value[1]+'</a>';
-	    		cell3.innerHTML = value[2];
+	    		cell3.innerHTML = value[2] + ' $';
 	    		cell4.innerHTML = '<span class="glyphicon glyphicon-plus-sign" onclick="increase_quantity('+value[0]+')"></span> ' +value[3]+ ' <span class="glyphicon glyphicon-minus-sign" onclick="decrease_quantity(' +value[0]+ ')"></span>';
-	    		cell5.innerHTML = value[2]*value[3];
+	    		cell5.innerHTML = value[2]*value[3] +' $  ' + '<span class="glyphicon glyphicon-trash" onclick="delete_product('+value[0]+')"></span> ';
 	    		total_price=total_price*1+value[2]*value[3];
 
 			}
@@ -136,7 +136,7 @@ function add_order_table()
 	    cell2.innerHTML = "";
 	    cell3.innerHTML = "";
 	    cell4.innerHTML = "Total Quantity: " + cart_get_number_of_items();
-	    cell5.innerHTML = "Total price: " + total_price;
+	    cell5.innerHTML = "Total price: " + total_price + ' $';
 	}
 } 
 
@@ -161,5 +161,12 @@ function increase_quantity(id)
 	x=JSON.parse(x);
 	x[3]=x[3]*1+1;
 	window.localStorage.setItem(key, JSON.stringify(x));
+	location.reload();
+}
+
+function delete_product(id)
+{
+	var key = 'product_' + id;
+	localStorage.removeItem(key);
 	location.reload();
 }
