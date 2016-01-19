@@ -37,6 +37,12 @@ function update_orders_input()
 	$('#orders_input').val(orders);
 }
 
+function update_order_price_input()
+{
+	var price = cart_total_price();
+	$('#order_price').val(price);
+}
+
 function update_orders_button()
 {
 	var text = 'Cart (' + cart_get_number_of_items() + ')';
@@ -65,6 +71,22 @@ function cart_get_number_of_items()
 	return cnt;
 }
 
+function cart_total_price()
+{
+	var total_price = 0;
+	for(var i =0; i < window.localStorage.length; i++)
+	{
+		var key = window.localStorage.key(i);
+		var value = window.localStorage.getItem(key);
+		value=JSON.parse(value);
+		if(key.indexOf('product_')==0)
+		{
+			total_price=total_price*1+value[2]*value[3];
+		}
+	}
+	return total_price;
+}
+
 function cart_get_orders()
 {
 	var orders = '';
@@ -90,7 +112,7 @@ function add_order_table()
 	    var cell1 = row.insertCell(0);
 	    cell1.innerHTML = "<b>Empty cart</b>";
 	} else {
-		var total_price='';
+		//var total_price='';
 		var table = document.getElementById("OrdersTable");
 	    var header = table.createTHead();
 	    var row = header.insertRow(0);
@@ -122,7 +144,7 @@ function add_order_table()
 	    		cell3.innerHTML = value[2] + ' $';
 	    		cell4.innerHTML = '<span class="glyphicon glyphicon-minus-sign" onclick="decrease_quantity(' +value[0]+ ')"></span> ' +value[3]+ ' <span class="glyphicon glyphicon-plus-sign" onclick="increase_quantity('+value[0]+')"></span>';
 	    		cell5.innerHTML = value[2]*value[3] +' $  ' + '<span class="glyphicon glyphicon-trash" onclick="delete_product('+value[0]+')"></span> ';
-	    		total_price=total_price*1+value[2]*value[3];
+	    		//total_price=total_price*1+value[2]*value[3];
 
 			}
 		}
@@ -136,7 +158,7 @@ function add_order_table()
 	    cell2.innerHTML = "";
 	    cell3.innerHTML = "";
 	    cell4.innerHTML = "Total Quantity: " + cart_get_number_of_items();
-	    cell5.innerHTML = "Total price: " + total_price + ' $';
+	    cell5.innerHTML = "Total price: " + cart_total_price() + ' $';
 	}
 } 
 
