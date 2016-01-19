@@ -11,6 +11,10 @@
 			          <%= f.text_field :order, id: "orders_input", class: "form-control" %>
 			    </div>
 			    <div class="form-group">
+			          <%= f.label :order_price, class: "control-label" %>
+			          <%= f.text_field :order_price, id: "order_price", class: "form-control" %>
+			    </div>
+			    <div class="form-group">
 			          <%= f.label :first_name, class: "control-label" %>
 			          <%= f.text_field :first_name, :value => current_user.first_name, class: "form-control" %>
 			    </div>
@@ -37,6 +41,6 @@
     update_orders_link();
     update_orders_input();
     add_order_table();
-    
+    update_order_price_input()
   });
 </script>
