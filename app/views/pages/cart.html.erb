@@ -31,7 +31,7 @@
 			          <%= f.select :adress, options_for_select(["office", "#{current_user.adress} +5$"]), {}, {class: "form-control"} %>
 			    </div>
 
-			    <%= f.submit "Order", class: "btn btn btn-default" %>
+			    <%= f.submit "Order", class: "btn btn btn-default", id: "order_button"%>
 			<% end %>
 		</div>
 	</div>

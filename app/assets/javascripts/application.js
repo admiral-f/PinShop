@@ -111,8 +111,9 @@ function add_order_table()
 	    var row = header.insertRow(0);
 	    var cell1 = row.insertCell(0);
 	    cell1.innerHTML = "<b>Empty cart</b>";
+	    document.getElementById("order_button").disabled = true;
 	} else {
-		//var total_price='';
+		document.getElementById("order_button").disabled = false;
 		var table = document.getElementById("OrdersTable");
 	    var header = table.createTHead();
 	    var row = header.insertRow(0);
@@ -144,9 +145,7 @@ function add_order_table()
 	    		cell3.innerHTML = value[2] + ' $';
 	    		cell4.innerHTML = '<span class="glyphicon glyphicon-minus-sign" onclick="decrease_quantity(' +value[0]+ ')"></span> ' +value[3]+ ' <span class="glyphicon glyphicon-plus-sign" onclick="increase_quantity('+value[0]+')"></span>';
 	    		cell5.innerHTML = value[2]*value[3] +' $  ' + '<span class="glyphicon glyphicon-trash" onclick="delete_product('+value[0]+')"></span> ';
-	    		//total_price=total_price*1+value[2]*value[3];
-
-			}
+	    	}
 		}
 		var row = table.insertRow();
 		var cell1 = row.insertCell(0);
