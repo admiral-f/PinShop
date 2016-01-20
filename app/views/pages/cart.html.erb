@@ -7,12 +7,10 @@
 			</table>
 			<%= form_for :order, url: orders_path do |f| %>
 				<div class="form-group">
-			          <%= f.label :order, class: "control-label" %>
-			          <%= f.text_field :order, id: "orders_input", class: "form-control" %>
+			          <%= f.hidden_field :order, id: "orders_input", class: "form-control" %>
 			    </div>
 			    <div class="form-group">
-			          <%= f.label :order_price, class: "control-label" %>
-			          <%= f.text_field :order_price, id: "order_price", class: "form-control" %>
+			          <%= f.hidden_field :order_price, id: "order_price", class: "form-control" %>
 			    </div>
 			    <div class="form-group">
 			          <%= f.label :first_name, class: "control-label" %>
