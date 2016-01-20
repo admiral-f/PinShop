@@ -4,6 +4,9 @@ class OrdersController < ApplicationController
   def create 
     @order=Order.new(order_params)
     @order.email=current_user.email
+    if @order.adress!='office'
+      @order.order_price+=5
+    end
     if @order.save
       redirect_to @order
     else
@@ -18,7 +21,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:order, :first_name, :last_name, :phone, :adress)
+    params.require(:order).permit(:order, :first_name, :last_name, :phone, :adress, :order_price)
   end
 
 
