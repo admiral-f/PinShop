@@ -1,11 +1,17 @@
-<h2>show <%= @order.id %></h2>
-   
-<% 	s1 = @order.order.split(/,/)
-	@arr=[]
-    s1.each do |x|
-      s2 = x.split(/\=/)
-      s3=s2[0].split(/_/)
-      arr2=[s3[1], s2[1]]
-      @arr.push arr2
-end %>
-<p><%= @arr%></p>
+<div class="container">
+	<div class="row">
+	<div class="col-xs-2"></div>
+		<div class="col-md-8 col-sm-8 col-xs-12">
+			<h2>show <%= @order.id %></h2>
+			<% 	s1 = @order.order.split(/,/)
+				@arr=[]
+			    s1.each do |x|
+			      s2 = x.split(/\=/)
+			      s3=s2[0].split(/_/)
+			      arr2=[s3[1], s2[1]]
+			      @arr.push arr2
+			end %>
+			<p><%= @arr%></p>
+		</div>
+	</div>
+</div>
