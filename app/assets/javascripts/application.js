@@ -191,3 +191,12 @@ function delete_product(id)
 	localStorage.removeItem(key);
 	location.reload();
 }
+
+function cancel_order()
+{
+	
+	window.localStorage.clear();
+	update_orders_link();
+	update_orders_input();
+	update_order_price_input();
+}
