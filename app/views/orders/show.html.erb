@@ -2,16 +2,60 @@
 	<div class="row">
 	<div class="col-xs-2"></div>
 		<div class="col-md-8 col-sm-8 col-xs-12">
-			<h2>show <%= @order.id %></h2>
+			<h2><p class="text-center">Your order</p></h2>
+			<p class="text-right"><%= @order.created_at %></p>
 			<% 	s1 = @order.order.split(/,/)
 				@arr=[]
 			    s1.each do |x|
-			      s2 = x.split(/\=/)
-			      s3=s2[0].split(/_/)
-			      arr2=[s3[1], s2[1]]
-			      @arr.push arr2
-			end %>
-			<p><%= @arr%></p>
+			    	s2 = x.split(/\=/)
+			      	s3=s2[0].split(/_/)
+			      	arr2=[s3[1], s2[1]]
+			      	@arr.push arr2
+				end
+				@arr.each do |item|
+					item[0] = Pin.find(item[0])
+				end %>
+			<table class="table">
+		      	<thead>
+			        <tr>
+			       	  <th>Product</th>
+			       	  <th>Price</th>
+			       	  <th>Qty</th>
+			       	  <th>Sum</th>
+			       	</tr>
+			    </thead>
+			    <tbody>
+			      <%@arr.each do |item|%>
+			       	<tr>
+			       	  	<td class="col-md-3"><%= image_tag item[0].image.url(:thumb) %></td>
+			       	  	<td><%= item[0].price %> $</td>
+			       	  	<td><%= item[1] %></td>
+			       	 	<td><%= item[0].price.to_f*item[1].to_i %></td>
+			       	</tr>		       
+			      <% end %>
+			      <% if @order.adress!='office' %>
+			      <tr>
+			       	  <td></td>
+			       	  <td></td>
+			       	  <td><b>Delivery cost:<b></td>
+			       	  <td>5 $</td>
+			      </tr>
+			      <% end %> 
+			      <tr>
+			       	  <td></td>
+			       	  <td></td>
+			       	  <td><b>Total price:<b></td>
+			       	  <td><%= @order.order_price %></td>
+			       </tr>
+		    	</tbody>
+		    </table>
+		    </br>
+		    <p><b>Client information</b></p>
+		    <p>Name: <%= @order.last_name%> <%= @order.first_name%></p> 
+			<p>Phone: <%= @order.phone%></p>
+			<p>Delivery adress: <%= @order.adress%></p>
+			<p>Email: <%= @order.email%></p>
+
 		</div>
 	</div>
 </div>
