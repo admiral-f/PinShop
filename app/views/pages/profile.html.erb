@@ -3,6 +3,86 @@
 	<div class="col-xs-2"></div>
 		<div class="col-md-8 col-sm-8 col-xs-12">
 			<h2><p class="text-center"><%= current_user.username%> profile</p></h2>
+			</br>
+			<h4>Current orders:</h4>
+			<table class="table">
+		      	<thead>
+			        <tr>
+			       	  <th>#</th>
+			       	  <th># order</th>
+			       	  <th>Qty</th>
+			       	  <th>Sum</th>
+			       	  <th>Delivery adress</th>
+			       	</tr>
+			    </thead>
+			    <tbody>
+			    	<% i=0 %>
+					<% @orders.each do |order| %>
+						<% if order.complete==false %>
+							<% i+=1
+							s1 = order.order.split(/,/)
+							@arr=[]
+							qty=0
+						    s1.each do |x|
+						    	s2 = x.split(/\=/)
+						      	s3=s2[0].split(/_/)
+						      	arr2=[s3[1], s2[1]]
+						      	@arr.push arr2
+							end
+							@arr.each do |item|
+								qty += item[1].to_i
+							end %>
+							<tr>
+			       	  			<td class="col-md-1"><%= i %></td>
+			       	  			<td class="col-md-1"><%= link_to "#{order.id}", order_path(order) %></td>
+			       	  			<td><%= qty %></td>
+			       	 			<td><%= order.order_price %></td>
+			       	 			<td><%= order.adress %></td>
+			       			</tr>
+						<% end %>
+					<% end %>
+				</tbody>
+		    </table>
+			</br>
+			<h4>Complete orders:</h4>
+			<table class="table">
+		      	<thead>
+			        <tr>
+			       	  <th>#</th>
+			       	  <th># order</th>
+			       	  <th>Qty</th>
+			       	  <th>Sum</th>
+			       	  <th>Delivery adress</th>
+			       	</tr>
+			    </thead>
+			    <tbody>
+			    	<% i=0 %>
+					<% @orders.each do |order| %>
+						<% if order.complete %>
+							<% i+=1
+							s1 = order.order.split(/,/)
+							@arr=[]
+							qty=0
+						    s1.each do |x|
+						    	s2 = x.split(/\=/)
+						      	s3=s2[0].split(/_/)
+						      	arr2=[s3[1], s2[1]]
+						      	@arr.push arr2
+							end
+							@arr.each do |item|
+								qty += item[1].to_i
+							end %>
+							<tr>
+			       	  			<td class="col-md-1"><%= i %></td>
+			       	  			<td class="col-md-1"><%= order.id %></td>
+			       	  			<td><%= qty %></td>
+			       	 			<td><%= order.order_price %></td>
+			       	 			<td><%= order.adress %></td>
+			       			</tr>
+						<% end %>
+					<% end %>
+				</tbody>
+		    </table>
 
 		</div>
 	</div>
