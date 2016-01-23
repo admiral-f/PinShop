@@ -16,11 +16,11 @@ class OrdersController < ApplicationController
   end
 
   def show
-    if current_user.username=='admin'
-      @order=Order.find(params[:id])
-    else
+    @order=Order.find(params[:id])
+    if (current_user.username!='admin') && (current_user.email!=@order.email)
       redirect_to pins_path
     end
+
   end
 
   def edit
