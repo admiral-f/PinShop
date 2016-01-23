@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @orders=Order.where(email: current_user)
+    @orders=Order.where("email=?", current_user.email)
   end
 
 end
