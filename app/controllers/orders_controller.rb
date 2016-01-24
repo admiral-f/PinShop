@@ -24,12 +24,26 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    if current_user.username=='admin'
+      @order=Order.find(params[:id])
+    else
+      redirect_to pins_path
+    end
+  end
+
+  def update
+    @order=Order.find(params[:id])
+    if @order.update(order_params)
+      redirect_to @order
+    else
+      render action: 'edit'
+    end
   end
 
   private
 
   def order_params
-    params.require(:order).permit(:order, :first_name, :last_name, :phone, :adress, :order_price)
+    params.require(:order).permit(:order, :first_name, :last_name, :phone, :adress, :order_price, :complete)
   end
 
 

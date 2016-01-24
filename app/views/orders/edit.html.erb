@@ -1,1 +1,40 @@
-<h2>Cart</h2>
+<div class="container">
+	<div class="row">
+	<div class="col-xs-2"></div>
+		<div class="col-md-8 col-sm-8 col-xs-12">
+			<h4>Edit order #<%=@order.id %></h4>
+			</br>
+			<p><b>Client information</b></p>
+		    <p>Name: <%= @order.last_name%> <%= @order.first_name%></p> 
+			<p>Phone: <%= @order.phone%></p>
+			<p>Delivery adress: <%= @order.adress%></p>
+			<p>Email: <%= @order.email%></p>
+			</br>
+			<%= form_for :order, url: order_path(@order), method: :put do |f| %>
+				<div class="form-group">
+					<%= f.label :order, class: "control-label" %> </br>
+					<%= f.text_field :order, class: "form-control" %>		
+				</div>
+				<div class="form-group">
+					<%= f.label :order_price, class: "control-label" %> </br>
+					<%= f.text_field :order_price, class: "form-control" %>		
+				</div>
+				<div class="form-group">
+					<%= f.label :phone, class: "control-label" %> </br>
+					<%= f.text_field :phone, class: "form-control" %>		
+				</div>
+				<div class="form-group">
+					<%= f.label :adress, class: "control-label" %> </br>
+					<%= f.text_field :adress, class: "form-control" %>		
+				</div>
+
+				<%= f.check_box :complete, include_hidden: false %> 
+				<%= f.label :complete, class: "control-label" %></p>
+				</br>
+				<%= f.submit "Submit", class: "btn btn-default" %>
+			<% end %>
+			</br>
+			
+		</div>
+	</div>
+</div>
