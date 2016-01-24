@@ -55,7 +55,12 @@
 			<p>Phone: <%= @order.phone%></p>
 			<p>Delivery adress: <%= @order.adress%></p>
 			<p>Email: <%= @order.email%></p>
-
+			<% if current_user.username=='admin' %>
+				<a href="<%= edit_order_path(@order) %>" class="btn btn-default" role="button">Edit order</a>
+			<% else %>
+				
+				
+			<% end %>
 		</div>
 	</div>
 </div>
