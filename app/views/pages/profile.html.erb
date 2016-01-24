@@ -42,8 +42,8 @@
 									<tr>
 					       	  			<td class="col-md-1"><b><%= i %></b></td>
 					       	  			<td class="col-md-2"><%= link_to "#{order.id} (see details)", order_path(order)%></td>
-					       	  			<td><%= qty %></td>
-					       	 			<td><%= order.order_price %></td>
+					       	  			<td class="col-md-1"><%= qty %></td>
+					       	 			<td class="col-md-1"><%= order.order_price %></td>
 					       	 			<td><%= order.adress %></td>
 					       			</tr>
 								<% end %>
@@ -81,9 +81,9 @@
 									end %>
 									<tr>
 					       	  			<td class="col-md-1"><%= i %></td>
-					       	  			<td class="col-md-2"><%= order.id %></td>
-					       	  			<td><%= qty %></td>
-					       	 			<td><%= order.order_price %></td>
+					       	  			<td class="col-md-2"><%= link_to "#{order.id} (see details)", order_path(order)%></td>
+					       	  			<td class="col-md-1"><%= qty %></td>
+					       	 			<td class="col-md-1"><%= order.order_price %></td>
 					       	 			<td><%= order.adress %></td>
 					       			</tr>
 								<% end %>
