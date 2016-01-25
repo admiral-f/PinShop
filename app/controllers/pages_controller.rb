@@ -16,6 +16,7 @@ class PagesController < ApplicationController
     if current_user.username!='admin'
       redirect_to pins_path
     end
+    @orders=Order.all
   end
 
 end

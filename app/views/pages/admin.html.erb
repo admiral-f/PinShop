@@ -1,1 +1,101 @@
-<h2>admin</h2>
+<div class="container">
+	<div class="row">
+	<div class="col-xs-2"></div>
+		<div class="col-md-8 col-sm-8 col-xs-12">
+			<h2><p class="text-center">admin</p></h2>
+			</br>
+			<div>
+			<ul id="myTabs" class="nav nav-tabs" role="tablist"> 
+				<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Orders</a></li> 
+				<li role="presentation" class=""><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Profile</a></li>  
+			</ul>
+			<div id="myTabContent" class="tab-content">
+				<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
+					<h4>Current orders:</h4>
+					<table class="table">
+				      	<thead>
+					        <tr>
+					       	  <th>#</th>
+					       	  <th># order</th>
+					       	  <th>Qty</th>
+					       	  <th>Sum</th>
+					       	  <th>Delivery adress</th>
+					       	</tr>
+					    </thead>
+					    <tbody>
+					    	<% i=0 %>
+							<% @orders.each do |order| %>
+								<% if order.complete==false %>
+									<% i+=1
+									s1 = order.order.split(/,/)
+									@arr=[]
+									qty=0
+								    s1.each do |x|
+								    	s2 = x.split(/\=/)
+								      	s3=s2[0].split(/_/)
+								      	arr2=[s3[1], s2[1]]
+								      	@arr.push arr2
+									end
+									@arr.each do |item|
+										qty += item[1].to_i
+									end %>
+									<tr>
+					       	  			<td class="col-md-1"><b><%= i %></b></td>
+					       	  			<td class="col-md-2"><%= link_to "#{order.id} (see details)", order_path(order)%></td>
+					       	  			<td class="col-md-1"><%= qty %></td>
+					       	 			<td class="col-md-1"><%= order.order_price %></td>
+					       	 			<td><%= order.adress %></td>
+					       			</tr>
+								<% end %>
+							<% end %>
+						</tbody>
+				    </table>
+					</br>
+					<h4>Complete orders:</h4>
+					<table class="table">
+				      	<thead>
+					        <tr>
+					       	  <th>#</th>
+					       	  <th># order</th>
+					       	  <th>Qty</th>
+					       	  <th>Sum</th>
+					       	  <th>Delivery adress</th>
+					       	</tr>
+					    </thead>
+					    <tbody>
+					    	<% i=0 %>
+							<% @orders.each do |order| %>
+								<% if order.complete %>
+									<% i+=1
+									s1 = order.order.split(/,/)
+									@arr=[]
+									qty=0
+								    s1.each do |x|
+								    	s2 = x.split(/\=/)
+								      	s3=s2[0].split(/_/)
+								      	arr2=[s3[1], s2[1]]
+								      	@arr.push arr2
+									end
+									@arr.each do |item|
+										qty += item[1].to_i
+									end %>
+									<tr>
+					       	  			<td class="col-md-1"><%= i %></td>
+					       	  			<td class="col-md-2"><%= link_to "#{order.id} (see details)", order_path(order)%></td>
+					       	  			<td class="col-md-1"><%= qty %></td>
+					       	 			<td class="col-md-1"><%= order.order_price %></td>
+					       	 			<td><%= order.adress %></td>
+					       			</tr>
+								<% end %>
+							<% end %>
+						</tbody>
+				    </table>
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab"> 
+					<%= render :template => "devise/registrations/edit" %> 
+				</div> 
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
