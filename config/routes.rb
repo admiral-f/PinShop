@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'index' => 'pages#index'
   get 'cart' => 'pages#cart'
   get 'profile' => 'pages#profile'
+  get 'admin' => 'pages#admin'
   resource :contacts, only: [:new, :create], path_names: { :new =>'' }
   resources :categories
   resources :pins, path_names: { :index =>'' }
