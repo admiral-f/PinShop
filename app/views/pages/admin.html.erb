@@ -6,7 +6,8 @@
 			</br>
 			<div>
 			<ul id="myTabs" class="nav nav-tabs" role="tablist"> 
-				<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Orders</a></li> 
+				<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Current Orders</a></li>
+				<li role="presentation" class=""><a href="#complete_order" id="order-tab" role="tab" data-toggle="tab" aria-controls="complete_order" aria-expanded="true">Complete Orders</a></li> 
 				<li role="presentation" class=""><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Profile</a></li>  
 			</ul>
 			<div id="myTabContent" class="tab-content">
@@ -50,7 +51,8 @@
 							<% end %>
 						</tbody>
 				    </table>
-					</br>
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="complete_order" aria-labelledby="order-tab"> 
 					<h4>Complete orders:</h4>
 					<table class="table">
 				      	<thead>
@@ -89,7 +91,7 @@
 								<% end %>
 							<% end %>
 						</tbody>
-				    </table>
+				    </table> 
 				</div>
 				<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab"> 
 					<%= render :template => "devise/registrations/edit" %> 
