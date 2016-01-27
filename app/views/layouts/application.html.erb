@@ -40,7 +40,10 @@
               <% if user_signed_in? %>
                 <li role="presentation" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                <%= current_user.username %> (<%= Order.where("complete=?", false).count %>)
+                <%= current_user.username %>
+                <% if current_user.username=='admin' %> 
+                  (<%= Order.where("complete=?", false).count %>)
+                <% end %>
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                 <% if current_user.username=='admin' %>
