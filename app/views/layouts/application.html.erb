@@ -35,12 +35,6 @@
             <li><%= link_to 'Shop', pins_path %><li>
             <li><%= link_to 'Contacts', contacts_path %><li>
             <li><%= link_to 'CART', cart_path, id: "orders_link" %><li>
-            <% if user_signed_in? %>
-              <% if current_user.username=='admin' %>
-                <li><%= link_to 'Add new Pin', new_pin_path  %><li>
-                <li><%= link_to 'Add new Category', new_category_path  %><li>
-              <% end %>
-            <% end %>
           </ul>
           <ul class="nav navbar-nav navbar-right" >
               <% if user_signed_in? %>
@@ -51,6 +45,9 @@
                 <ul class="dropdown-menu">
                 <% if current_user.username=='admin' %>
                   <li><a href="<%= admin_path %>">Admin page</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><%= link_to 'Add new Pin', new_pin_path  %><li>
+                  <li><%= link_to 'Add new Category', new_category_path  %><li>
                 <% else %>  
                   <li><a href="<%= profile_path %>"><%= current_user.username %>'s Profile</a></li>
                 <% end %>
