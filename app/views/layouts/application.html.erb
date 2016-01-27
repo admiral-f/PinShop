@@ -40,11 +40,11 @@
               <% if user_signed_in? %>
                 <li role="presentation" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                <%= current_user.username %>
+                <%= current_user.username %> (<%= Order.where("complete=?", false).count %>)
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                 <% if current_user.username=='admin' %>
-                  <li><a href="<%= admin_path %>">Admin page</a></li>
+                  <li><a href="<%= admin_path %>">Admin page (<%= Order.where("complete=?", false).count %>)</a></li>
                   <li role="separator" class="divider"></li>
                   <li><%= link_to 'Add new Pin', new_pin_path  %><li>
                   <li><%= link_to 'Add new Category', new_category_path  %><li>
