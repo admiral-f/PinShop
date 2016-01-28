@@ -7,7 +7,8 @@
 			<div>
 			<ul id="myTabs" class="nav nav-tabs" role="tablist"> 
 				<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Current Orders</a></li>
-				<li role="presentation" class=""><a href="#complete_order" id="order-tab" role="tab" data-toggle="tab" aria-controls="complete_order" aria-expanded="true">Complete Orders</a></li> 
+				<li role="presentation" class=""><a href="#complete_order" id="order-tab" role="tab" data-toggle="tab" aria-controls="complete_order" aria-expanded="true">Complete Orders</a></li>
+				<li role="presentation" class=""><a href="#contacts" id="contacts-tab" role="tab" data-toggle="tab" aria-controls="contacts" aria-expanded="true">Contacts</a></li>  
 				<li role="presentation" class=""><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Profile</a></li>  
 			</ul>
 			<div id="myTabContent" class="tab-content">
@@ -93,6 +94,33 @@
 						</tbody>
 				    </table> 
 				</div>
+				<div role="tabpanel" class="tab-pane fade" id="contacts" aria-labelledby="contacts-tab"> 
+					<h4>Contacts:</h4>
+					<table class="table">
+						<thead>
+					        <tr>
+					       	  <th>#</th>
+					       	  <th>Email</th>
+					       	  <th>Name</th>
+					       	  <th>Date</th>
+					       	  <th>Message</th>
+					       	</tr>
+					    </thead>
+					    <tbody>
+					    	<% i=0 %>
+					    	<% @contacts.each do |contact| %>
+					    		<% i+=1 %>
+					    		<tr>
+					       	  		<td class="col-md-1"><%= i %></td>
+					       	  		<td class="col-md-2"><%= contact.email %></td>
+					       	  		<td class="col-md-1"><%= contact.name %></td>
+					       	 		<td class="col-md-2"><%= contact.created_at %></td>
+					       	 		<td><%= contact.message %></td>
+					       		</tr>	
+					    	<% end %>
+					    </tbody>	
+					</table>
+				</div> 
 				<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab"> 
 					<%= render :template => "devise/registrations/edit" %> 
 				</div> 

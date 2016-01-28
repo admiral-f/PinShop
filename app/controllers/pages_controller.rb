@@ -17,6 +17,7 @@ class PagesController < ApplicationController
       redirect_to pins_path
     end
     @orders=Order.all
+    @contacts=Contact.all
   end
 
 end
