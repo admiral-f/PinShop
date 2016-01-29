@@ -43,7 +43,7 @@
 									end %>
 									<tr>
 					       	  			<td class="col-md-1"><b><%= i %></b></td>
-					       	  			<td class="col-md-2"><%= link_to "#{order.id} (see details)", order_path(order)%></td>
+					       	  			<td class="col-md-2"><%= link_to "#{order.id} at #{order.created_at} (see details)", order_path(order)%></td>
 					       	  			<td class="col-md-1"><%= qty %></td>
 					       	 			<td class="col-md-1"><%= order.order_price %></td>
 					       	 			<td><%= order.adress %></td>
@@ -60,6 +60,7 @@
 					        <tr>
 					       	  <th>#</th>
 					       	  <th># order</th>
+					       	  <th>Complete date</th>
 					       	  <th>Qty</th>
 					       	  <th>Sum</th>
 					       	  <th>Delivery adress</th>
@@ -84,7 +85,8 @@
 									end %>
 									<tr>
 					       	  			<td class="col-md-1"><%= i %></td>
-					       	  			<td class="col-md-2"><%= link_to "#{order.id} (see details)", order_path(order)%></td>
+					       	  			<td class="col-md-2"><%= link_to "#{order.id} at #{order.created_at} (see details)", order_path(order)%></td>
+					       	  			<td class="col-md-1"><%= order.updated_at %></td>
 					       	  			<td class="col-md-1"><%= qty %></td>
 					       	 			<td class="col-md-1"><%= order.order_price %></td>
 					       	 			<td><%= order.adress %></td>
