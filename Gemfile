@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'pony'
 gem 'paperclip'
 gem 'devise'
+gem 'will_paginate-bootstrap'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
