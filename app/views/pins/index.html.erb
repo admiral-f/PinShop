@@ -41,6 +41,10 @@
   					</div>
 				<% end %>
 			</div>
+    <center>
+      <%= will_paginate @pin, :class => 'pagination-sm', renderer: BootstrapPagination::Rails %>
+    </center>
+
 		</div>
 	</div>
 </div>

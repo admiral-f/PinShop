@@ -2,7 +2,7 @@ class PinsController < ApplicationController
   before_filter :authenticate_user!, :only=>[:new, :create, :edit, :update, :destroy]
   def index
     @categories=Category.all
-    @pin=Pin.all
+    @pin=Pin.all.paginate(:page => params[:page], :per_page => 6)
   end
 
   def new
