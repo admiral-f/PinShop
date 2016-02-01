@@ -85,7 +85,7 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title" id="exampleModalLabel">Log in</h4>
             </div>
-              <%= form_for(User.new, url: session_path(:user), html:{id: 'sign_in_user', :'data-type' => 'json'}, remote: true) do |f| %>
+              <%= form_for(User.new, url: session_path(:user)) do |f| %>
                 <div class="modal-body">
                 <div class="form-group">
                     <%= f.label :email, class: "control-label", id: "control-label" %><br />
@@ -103,6 +103,8 @@
                       <%= f.label :remember_me, class: "control-label", id: "control-label" %>
                     </div>
                 <% end -%>
+                <p id="control-label"><%= link_to "Sign up", new_registration_path(resource_name), id: "control-label" %> |
+                <%= link_to "Forgot your password?", new_password_path(resource_name), id: "control-label" %></p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
