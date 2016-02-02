@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root 'pages#index'
   get 'index' => 'pages#index'
   get 'cart' => 'pages#cart'
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :pins, path_names: { :index =>'' }
   resources :orders
+  
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
