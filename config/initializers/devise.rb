@@ -2,7 +2,7 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   config.omniauth :facebook, "417848128426013", "8b1dc4f4e9f36ca0a7a0ea6c3137307b", scope: 'email', info_fields: 'email, name, first_name, last_name'
-  config.omniauth :vkontakte, "5277782", "QIywkEf3MpTj6yhzRp9K", scope: 'email'
+  config.omniauth :vkontakte, "5277782", "QIywkEf3MpTj6yhzRp9K", scope: 'email, name, first_name, last_name'
                 #callback_url: 'devise/registrations#edit'
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
