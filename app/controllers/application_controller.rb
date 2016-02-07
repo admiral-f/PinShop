@@ -4,6 +4,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  def after_sign_in_path_for(resource_or_scope)
+    if resource.sign_in_count == 1
+       edit_user_registration_path
+    else
+       root_path
+    end
+  end
+
   private
   
   def configure_permitted_parameters
