@@ -7,6 +7,7 @@ gem 'will_paginate-bootstrap'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
+gem "braintree"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
