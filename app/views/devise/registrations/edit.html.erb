@@ -60,7 +60,7 @@ var map;
 var geocoder;
 
 
-function initialize() {
+setTimeout(function initialize() {
   var myOptions = {
     center: new google.maps.LatLng(55.949792, 37.132495 ),
     zoom: 10,
@@ -82,7 +82,7 @@ function initialize() {
     }
     getAddress(location);
     }
-
+  
   function getAddress(latLng) {
     geocoder.geocode( {'latLng': latLng},
     function(results, status) {
@@ -97,6 +97,6 @@ function initialize() {
           }
       });
     }
-  }
+  }, 1000);
   google.maps.event.addDomListener(window, 'load', initialize);
 </script>
