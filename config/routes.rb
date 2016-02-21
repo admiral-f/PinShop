@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'transactions/new'
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations" }
   root 'pages#index'
   get 'index' => 'pages#index'
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :pins, path_names: { :index =>'' }
   resources :orders
+  resources :transactions, only: [:new, :create]
   
   
   # The priority is based upon order of creation: first created -> highest priority.
