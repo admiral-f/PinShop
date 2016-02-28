@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
 
   def show
     @order=Order.find(params[:id])
+    gon.client_token = generate_client_token
     if (current_user.username!='admin') && (current_user.email!=@order.email)
       redirect_to pins_path
     end
@@ -44,6 +45,9 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:order, :first_name, :last_name, :phone, :adress, :order_price, :complete)
+  end
+  def generate_client_token
+    Braintree::ClientToken.generate
   end
 
 
